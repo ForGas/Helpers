@@ -17,7 +17,7 @@ namespace BuilderOrganizer
             return (TEntity)Activator.CreateInstance(typeof(TEntity), new object[] { });
         }
 
-        public TEntity CreateEntityUsingParams<TEntity>(params object[] properties) where TEntity : new()
+        public TEntity CreateEntityUsingInitParams<TEntity>(params object[] properties) where TEntity : new()
         {
             var obj = CreateEntity<TEntity>();
             var paramObjectNames = GetEnteredParametersName(new StackTrace(true));
