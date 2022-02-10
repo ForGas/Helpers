@@ -45,7 +45,7 @@ namespace BuilderOrganizer
                         .ToArray();
         }
 
-        private Dictionary<int, int> GetCollateIndexDictionary(Type objectType, string[] paramObjectNames)
+        public Dictionary<int, int> GetCollateIndexDictionary(Type objectType, string[] paramObjectNames)
         {
             var indexDictionary = new Dictionary<int, int>();
             var properties = objectType.GetProperties();
