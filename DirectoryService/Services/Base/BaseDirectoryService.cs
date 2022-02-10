@@ -42,14 +42,14 @@ namespace DirectoryService.Services.Base
 
         public bool VerifyFileNameExtension(string fileName)
         {
-            return !string.IsNullOrEmpty(fileName) && ((Func<bool>)(() =>
+            return !string.IsNullOrEmpty(fileName) && ((Func<string, bool>)(static (fileName) =>
             {
                 var regex = new Regex(@"^\w*.");
                 string fileExtension = regex.Replace(fileName, "");
 
                 var extensions = Enum.GetNames(typeof(FileExtension));
                 return extensions.Any(item => item.ToLower() == fileExtension);
-            })).Invoke();
+            })).Invoke(fileName);
         }
 
         public List<string>? FindFilesNameByExtension(string approximateFileName)
