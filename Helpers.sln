@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helpers", "Helpers\Helpers.csproj", "{1621388E-984E-4BE3-A495-4DBD1567AD7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Helpers", "Helpers\Helpers.csproj", "{1621388E-984E-4BE3-A495-4DBD1567AD7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuilderOrganizer", "CreateOrganizer\BuilderOrganizer.csproj", "{D9E77AC8-F316-41A0-B41D-11968A74179D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuilderOrganizer", "CreateOrganizer\BuilderOrganizer.csproj", "{D9E77AC8-F316-41A0-B41D-11968A74179D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataWorker", "DataWorker\DataWorker.csproj", "{55FE338B-9BDF-4B37-81AB-810F9A02532A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D9E77AC8-F316-41A0-B41D-11968A74179D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9E77AC8-F316-41A0-B41D-11968A74179D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9E77AC8-F316-41A0-B41D-11968A74179D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55FE338B-9BDF-4B37-81AB-810F9A02532A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55FE338B-9BDF-4B37-81AB-810F9A02532A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55FE338B-9BDF-4B37-81AB-810F9A02532A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55FE338B-9BDF-4B37-81AB-810F9A02532A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
