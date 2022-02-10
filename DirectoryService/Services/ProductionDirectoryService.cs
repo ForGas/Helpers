@@ -6,9 +6,6 @@ namespace DirectoryService.Services
         where Format : Enum
     {
         public ProductionDirectoryService(string filesDirectoryName)
-            : base(Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory), filesDirectoryName)
-        {
-
-        }
+            : base(Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory), filesDirectoryName) { }
     }
 }
