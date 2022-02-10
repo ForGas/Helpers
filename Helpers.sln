@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Helpers", "Helpers\Helpers.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuilderOrganizer", "CreateOrganizer\BuilderOrganizer.csproj", "{D9E77AC8-F316-41A0-B41D-11968A74179D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryService", "DataWorker\DirectoryService.csproj", "{55FE338B-9BDF-4B37-81AB-810F9A02532A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryService", "DirectoryService\DirectoryService.csproj", "{55FE338B-9BDF-4B37-81AB-810F9A02532A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DisplayService", "DisplayService\DisplayService.csproj", "{92464EDF-A3F4-4DE6-B56B-58592DFEE3F8}"
 EndProject
