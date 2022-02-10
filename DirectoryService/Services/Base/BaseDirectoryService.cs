@@ -3,13 +3,13 @@ using System.Text.RegularExpressions;
 
 namespace DirectoryService.Services.Base
 {
-    public class BaseDirectoryService<FileExtension> : IFileService<FileExtension>
+    public abstract class BaseDirectoryService<FileExtension> : IFileService<FileExtension>
         where FileExtension : Enum
     {
         protected readonly string _directoryPath;
         protected readonly string _filesDirectoryName;
 
-        public BaseDirectoryService(string directory, string filesDirectoryName)
+        protected BaseDirectoryService(string directory, string filesDirectoryName)
         {
             _directoryPath = directory;
             _filesDirectoryName = filesDirectoryName;
