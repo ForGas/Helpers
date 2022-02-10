@@ -12,12 +12,12 @@ namespace BuilderOrganizer
 
         public static BuilderOrganizer Instance => Lazy.Value;
 
-        public TEntity CreateEntity<TEntity>() where TEntity : new()
+        public TEntity CreateEntity<TEntity>() where TEntity : class, new()
         {
             return (TEntity)Activator.CreateInstance(typeof(TEntity), new object[] { });
         }
 
-        public TEntity CreateEntityUsingInitParams<TEntity>(params object[] properties) where TEntity : new()
+        public TEntity CreateEntityUsingInitParams<TEntity>(params object[] properties) where TEntity : class, new()
         {
             var obj = CreateEntity<TEntity>();
             var paramObjectNames = GetEnteredParametersName(new StackTrace(true));
