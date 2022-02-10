@@ -21,7 +21,7 @@ namespace BuilderOrganizer
         {
             var obj = CreateEntity<TEntity>();
             var paramObjectNames = GetEnteredParametersName(new StackTrace(true));
-            var indexCollection = GetIndexDictionary(obj!.GetType(), paramObjectNames);
+            var indexCollection = GetCollateIndexDictionary(obj!.GetType(), paramObjectNames);
             var typeProperties = obj.GetType().GetProperties();
 
             foreach (var item in indexCollection)
@@ -45,7 +45,7 @@ namespace BuilderOrganizer
                         .ToArray();
         }
 
-        private Dictionary<int, int> GetIndexDictionary(Type objectType, string[] paramObjectNames)
+        private Dictionary<int, int> GetCollateIndexDictionary(Type objectType, string[] paramObjectNames)
         {
             var indexDictionary = new Dictionary<int, int>();
             var properties = objectType.GetProperties();
