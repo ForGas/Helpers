@@ -24,12 +24,9 @@ namespace BuilderOrganizer
             var indexCollection = GetCollateIndexDictionary(obj!.GetType(), paramObjectNames);
             var typeProperties = obj.GetType().GetProperties();
 
-            foreach (var item in indexCollection)
+            foreach (var item in indexCollection.Where(x => typeProperties[x.Key].PropertyType.Name == properties[x.Value].GetType().Name))
             {
-                if (typeProperties[item.Key].PropertyType.Name == properties[item.Value].GetType().Name)
-                {
-                    typeProperties[item.Key].SetValue(obj, properties[item.Value], null);
-                }
+                typeProperties[item.Key].SetValue(obj, properties[item.Value], null);
             }
 
             return obj;
