@@ -20,7 +20,7 @@ namespace BuilderOrganizer
         public TEntity CreateEntityUsingParams<TEntity>(params object[] properties) where TEntity : new()
         {
             var obj = CreateEntity<TEntity>();
-            var paramObjectNames = GetParametrsName(new StackTrace(true));
+            var paramObjectNames = GetEnteredParametersName(new StackTrace(true));
             var indexCollection = GetIndexDictionary(obj!.GetType(), paramObjectNames);
             var typeProperties = obj.GetType().GetProperties();
 
@@ -35,7 +35,7 @@ namespace BuilderOrganizer
             return obj;
         }
 
-        public string[] GetParametrsName(StackTrace stackTrace)
+        public string[] GetEnteredParametersName(StackTrace stackTrace)
         {
             var frame = stackTrace.GetFrame(1);
             var line = File.ReadAllLines(frame.GetFileName())[frame.GetFileLineNumber() - 1].Trim();
@@ -49,13 +49,12 @@ namespace BuilderOrganizer
         {
             var indexDictionary = new Dictionary<int, int>();
             var properties = objectType.GetProperties();
-            var valueUpArr = paramObjectNames.Select(x => x.ToUpper()).ToArray();
 
             for (int i = 0; i < properties.Length; i++)
             {
-                if (IsContain(properties[i], valueUpArr))
+                if (IsContain(properties[i], paramObjectNames))
                 {
-                    indexDictionary.Add(i, GetIndexByPropertyName(properties[i], valueUpArr));
+                    indexDictionary.Add(i, GetIndexByPropertyName(properties[i], paramObjectNames));
                 }
             }
 
@@ -64,11 +63,13 @@ namespace BuilderOrganizer
 
         public int GetIndexByPropertyName(PropertyInfo property, string[] verifiableArr)
         {
+            verifiableArr = verifiableArr.Select(x => x.ToUpper()).ToArray() ?? new string[0];
             return verifiableArr.ToList().IndexOf(property.Name.ToUpper());
         }
 
         public bool IsContain(PropertyInfo property, string[] verifiableArr)
         {
+            verifiableArr = verifiableArr.Select(x => x.ToUpper()).ToArray() ?? new string[0];
             return verifiableArr.AsEnumerable().Any(x => x.ToUpper() == property.Name.ToUpper());
         }
     }
