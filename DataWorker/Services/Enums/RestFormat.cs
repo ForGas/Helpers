@@ -1,4 +1,4 @@
-﻿namespace DataWorker.Services.Enums
+﻿namespace DirectoryService.Services.Enums
 {
     public enum RestFormat
     {

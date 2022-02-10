@@ -1,7 +1,7 @@
-﻿using DataWorker.Interfaces;
+﻿using DirectoryService.Interfaces;
 using System.Text.RegularExpressions;
 
-namespace DataWorker.Services.Base
+namespace DirectoryService.Services.Base
 {
     public class BaseDirectoryService<FileExtension> : IFileService<FileExtension>
         where FileExtension : Enum
@@ -22,44 +22,51 @@ namespace DataWorker.Services.Base
 
         public string? GetFilePath(string fileName)
         {
-            if (string.IsNullOrEmpty(fileName))
-            {
-                return null;
-            }
+            return string.IsNullOrEmpty(fileName) 
+                ? null 
+                : (_filesDirectoryName == new DirectoryInfo(_directoryPath).Name
+                    ? string.Concat(_directoryPath, '\\', fileName)
+                    : Path.GetFullPath(Path.Combine(_filesDirectoryName, fileName), _directoryPath));
+        }
 
-            var filesPath = Path.Combine(_filesDirectoryName, fileName);
-
-            return Path.GetFullPath(filesPath, _directoryPath);
+        public string GetExtensionByFileName(string fileName)
+        {
+            return Path.GetExtension(fileName);
         }
 
         public bool IsFileExists(string fileName)
         {
             var path = GetFilePath(fileName);
-
             return File.Exists(path);
         }
 
         public bool VerifyFileNameExtension(string fileName)
         {
-            if (string.IsNullOrEmpty(fileName))
+            return !string.IsNullOrEmpty(fileName) && ((Func<bool>)(() =>
             {
-                return false;
-            }
+                var regex = new Regex(@"^\w*.");
+                string fileExtension = regex.Replace(fileName, "");
 
-            var regex = new Regex(@"^\w*.");
-            string fileExtension = regex.Replace(fileName, "");
+                var extensions = Enum.GetNames(typeof(FileExtension));
+                return extensions.Any(item => item.ToLower() == fileExtension);
+            })).Invoke();
+        }
 
-            var extensions = Enum.GetNames(typeof(FileExtension));
-
-            foreach (var item in extensions)
-            {
-                if (item.ToLower() == fileExtension)
+        public List<string>? FindFilesNameByExtension(string approximateFileName)
+        {
+            return !string.IsNullOrEmpty(approximateFileName) 
+                ? null
+                : ((Func<List<string>>)(() =>
                 {
-                    return true;
-                }
-            }
+                    var filesNames = Directory
+                            .GetFiles(Path.Combine(_directoryPath, _filesDirectoryName))
+                            .Select(x => Path.GetFileName(x))
+                            .ToList();
 
-            return false;
+                    var extension = GetExtensionByFileName(approximateFileName);
+
+                    return filesNames.Where(x => extension == GetExtensionByFileName(x)).ToList();
+                })).Invoke();
         }
     }
 }

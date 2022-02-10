@@ -1,4 +1,4 @@
-﻿namespace DataWorker.Interfaces
+﻿namespace DirectoryService.Interfaces
 {
     public interface IPath
     {
