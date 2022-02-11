@@ -1,4 +1,4 @@
-﻿namespace DirectoryService.Services.Enums
+﻿namespace Service.Directory.Enums
 {
     public enum RestFormat
     {

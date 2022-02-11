@@ -1,6 +1,6 @@
-﻿using DisplayService.Interfaces;
+﻿using Service.Interfaces;
 
-namespace DisplayService
+namespace Service
 {
     public class DisplayConsole : IDisplay
     {

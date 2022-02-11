@@ -1,4 +1,4 @@
-﻿namespace DataWorker.Interfaces
+﻿namespace Service.Interfaces
 {
     public interface ISerialize { }
 }

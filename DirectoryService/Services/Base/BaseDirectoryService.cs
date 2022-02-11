@@ -1,7 +1,7 @@
-﻿using DirectoryService.Interfaces;
+﻿using Service.Interfaces;
 using System.Text.RegularExpressions;
 
-namespace DirectoryService.Services.Base
+namespace Service.Directory.Base
 {
     public abstract class BaseDirectoryService<FileExtension> : IFileService<FileExtension>
         where FileExtension : Enum

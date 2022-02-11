@@ -1,12 +1,12 @@
-﻿using DataWorker.Interfaces;
-using DirectoryService.Services.Enums;
+﻿using Service.Interfaces;
+using Service.Directory.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataWorker
+namespace Service
 {
     public class DataWorker
     {

@@ -1,6 +1,6 @@
-﻿using DirectoryService.Services.Base;
+﻿using Service.Directory.Base;
 
-namespace DirectoryService.Services
+namespace Service.Directory
 {
     public class ProductionDirectoryService<Format> : BaseDirectoryService<Format>
         where Format : Enum

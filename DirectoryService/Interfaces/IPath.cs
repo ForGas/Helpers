@@ -1,4 +1,4 @@
-﻿namespace DirectoryService.Interfaces
+﻿namespace Service.Interfaces
 {
     public interface IPath
     {

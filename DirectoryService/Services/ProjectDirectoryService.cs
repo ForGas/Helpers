@@ -1,7 +1,7 @@
-﻿using DirectoryService.Services.Base;
+﻿using Service.Directory.Base;
 using System.Reflection;
 
-namespace DirectoryService.Services
+namespace Service.Directory
 {
     public class ProjectDirectoryService<Format> : BaseDirectoryService<Format>
         where Format : Enum

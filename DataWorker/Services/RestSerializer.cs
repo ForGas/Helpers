@@ -1,6 +1,6 @@
-﻿using DataWorker.Interfaces;
-using DirectoryService.Services.Base;
-using DirectoryService.Services.Enums;
+﻿using Service.Interfaces;
+using Service.Directory.Base;
+using Service.Directory.Enums;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace DataWorker.Services
+namespace Service.Serialize
 {
     public abstract class RestSerializer<Format> : IRestSerializer<Format>
         where Format : Enum
