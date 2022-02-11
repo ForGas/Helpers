@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Text.RegularExpressions;
 
-namespace BuilderOrganizer
+namespace Builder
 {
     public class BuilderOrganizer
     {

@@ -8,6 +8,7 @@ namespace DisplayService.Interfaces
 {
     public interface IDisplay
     {
-        public void Print<T>(ICollection<T> entities) where T : class;
+        void Print<T>(ICollection<T> entities) where T : class;
+        void Print<T>(T model) where T : class;
     }
 }
