@@ -1,6 +1,6 @@
 ﻿using Service.Interfaces;
-using Service.Directory.Base;
-using Service.Directory.Enums;
+using Service.DirectoryService.Base;
+using Service.DirectoryService.Enums;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System;

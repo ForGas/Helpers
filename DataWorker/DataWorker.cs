@@ -1,5 +1,5 @@
 ﻿using Service.Interfaces;
-using Service.Directory.Enums;
+using Service.DirectoryService.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
